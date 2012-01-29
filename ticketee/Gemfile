@@ -15,7 +15,7 @@ group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
 end
-
+gem 'dynamic_form'
 gem 'jquery-rails'
 
 # Use unicorn as the web server
@@ -32,7 +32,7 @@ group :test, :development do
 end
 
 group :test do
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', '1.0.6'
   gem 'capybara'
   gem 'database_cleaner'
 end
