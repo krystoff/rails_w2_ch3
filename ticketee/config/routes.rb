@@ -21,6 +21,18 @@ Ticketee::Application.routes.draw do
     
   resources :files
   
+  namespace :admin do
+    root :to => "base#index"
+    resources :states do
+      member do
+        get :make_default
+      end
+    end
+    resources :users do
+      resources :permissions
+    end
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -78,11 +90,5 @@ Ticketee::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
   
-  namespace :admin do
-    root :to => "base#index"
-    resources :users do
-      resources :permissions
-    end
-  end
-  
+
 end
