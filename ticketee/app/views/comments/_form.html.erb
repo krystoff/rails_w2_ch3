@@ -10,6 +10,8 @@
       <%= f.label :state_id %>
       <%= f.select :state_id , @states.map { |s| [s.name, s.id] }, :selected => @ticket.state_id %>
     </p>
+    
   <% end %>
+  <%= render "tags/form" %>
   <%= f.submit %>
 <% end %>
