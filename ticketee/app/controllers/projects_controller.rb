@@ -7,6 +7,10 @@ class ProjectsController < ApplicationController
     @projects = Project.for(current_user).all
   end
   
+  def show
+    @tickets = @project.tickets
+  end
+  
   def new
     @project = Project.new
   end
@@ -20,9 +24,6 @@ class ProjectsController < ApplicationController
       flash[:alert] = "Project has not been created."
       render :action => "new"
     end
-  end
-  
-  def show    
   end
   
   def edit    

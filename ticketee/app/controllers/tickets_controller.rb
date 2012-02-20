@@ -39,7 +39,9 @@ class TicketsController < ApplicationController
   def create
     @ticket = @project.tickets.build(params[:ticket].merge!(:user => current_user))
     if @ticket.save
-      @ticket.tag!(params[:tags])
+      if can?(:tag, @project) || current_user.admin?
+        @ticket.tag!(params[:tags])
+      end
       flash[:notice] = "Ticket has been created."
       redirect_to [@project, @ticket]
     else
@@ -52,6 +54,11 @@ class TicketsController < ApplicationController
     @ticket.destroy
     flash[:notice] = "Ticket has been deleted."
     redirect_to @project
+  end
+  
+  def search
+    @tickets = @project.tickets.search(params[:search])
+    render "projects/show"
   end
   
   def authorize_update!
@@ -80,3 +87,4 @@ class TicketsController < ApplicationController
       @ticket = @project.tickets.find(params[:id])
     end
 end
+
