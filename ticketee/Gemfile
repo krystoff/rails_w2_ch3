@@ -41,6 +41,7 @@ group :test do
   gem 'factory_girl'
   gem 'email_spec'
   gem 'launchy'
+  gem 'gmail'
   #gem 'pry-rails'
 end
 gem 'devise', '~> 1.4.3'

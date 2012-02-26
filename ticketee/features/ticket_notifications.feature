@@ -28,7 +28,7 @@ Feature: Ticket Notifications
     And the email should contain 2 parts
     And there should be a part with content type "text/plain"
     And there should be a part with content type "text/html"
-    And they should see "[ticketee] TextMate 2 - Release date" in the email subject
+    And they should see "[Ticketee] TextMate 2 - Release date" in the email subject
     Then they should see "updated the Release date ticket" in the email body
     Then they follow "view this ticket online here" in the email
     Then I should see "Release date" within "#ticket h2"
