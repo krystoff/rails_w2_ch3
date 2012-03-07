@@ -5,6 +5,7 @@ set :rvm_type, :user
 
 set :application, "ticketee"
 set :repository,  "git@github.com:krystoff/rails_w2_ch3.git"
+set :branch, "Chap14"
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
