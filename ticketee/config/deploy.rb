@@ -1,3 +1,7 @@
+$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) 
+require 'rvm/capistrano'
+require 'bundler/capistrano'
+
 set :application, "ticketee"
 set :repository,  "git@github.com:krystoff/rails_w2_ch3.git"
 
@@ -13,6 +17,7 @@ set :user, "ticketeeapp.com"
 set :deploy_to, "/home/ticketeeapp.com/apps/#{application}"
 
 set :use_sudo, false
+ssh_options[:paranoid] = false
 
 set :keep_releases, 5
 
