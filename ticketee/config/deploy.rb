@@ -1,6 +1,7 @@
+require 'bundler/capistrano'
 $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) 
 require 'rvm/capistrano'
-require 'bundler/capistrano'
+set :rvm_type, :user
 
 set :application, "ticketee"
 set :repository,  "git@github.com:krystoff/rails_w2_ch3.git"
